@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_ibm_waiops.AIOpsSimilarIncidents</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>AIOpsSimilarIncidents</name>
+        <script><![CDATA[var AIOpsSimilarIncidents = Class.create();
+AIOpsSimilarIncidents.prototype = {
+   initialize: function(request, response) {
+		this.request = JSON.parse(request);
+		this.response = JSON.parse(response);
+		this.DEFAULT_COUNT = 10;
+		this.DEFAULT_OFFSET = 0;
+    },
+	
+	processSearch: function(inputs) {
+		
+		var results = [];
+		
+		var searchInputs = JSON.parse(inputs);
+		
+		if (!searchInputs['tableName'])
+			return results;
+		
+		this.tableName = searchInputs['tableName'].toString();
+		this.sysId = this.request.formId;
+		this.search = this.request.query && this.request.query.freetext ? this.request.query.freetext : '';
+		
+		var gr = new GlideRecord(this.tableName);
+		var found = gr.get(this.sysId);
+		// if it is a new record, then we don't need to proceed furthur as we don't have story id and app fields
+		if(!found)
+			return results;
+		
+		//get the story and app values
+		var storyId = gr.getValue('x_ibm_waiops_story_id');
+		var appGroupId = gr.getValue('x_ibm_waiops_application_group_id');
+		var appId = gr.getValue('x_ibm_waiops_application_id'); 
+		
+		// read the properties
+		var endPointURL = gs.getProperty("x_ibm_waiops.AIOPS_URL");
+		var user = gs.getProperty("x_ibm_waiops.AIOPS_USERNAME");
+		var password = gs.getProperty("x_ibm_waiops.AIOPS_PASSWORD");
+		var instanceName = gs.getProperty("x_ibm_waiops.AIOPS_INSTANCE_NAME");
+		
+		var token = null;
+		
+		try {
+			// first rest call to get the token
+			var req1 = new sn_ws.RESTMessageV2();
+			req1.setHttpTimeout(10000);
+			req1.setEndpoint(endPointURL + "/aiops/v1/auth/token");
+			req1.setHttpMethod('POST');
+			req1.setRequestHeader("Accept","application/json");
+			req1.setRequestHeader('Content-Type','application/json');
+			var body = "{\"username\": \""+ user + "\", \"password\": \"" + password + "\"}";
+			req1.setRequestBody(body);
+			var resp1 = req1.execute();
+			
+			var status = resp1.getStatusCode();
+			
+			//Might throw exception if http connection timed out or some issue 
+			//with sending request itself because of encryption/decryption of password.
+			if(!resp1.haveError() && status == 200)
+				// parse token
+				token = JSON.parse(resp1.getBody()).token;
+			else
+				gs.error("Unable to get the AIOps token " + resp1.getErrorMessage());
+			
+		} catch(ex) {
+			gs.error("Unable to get the AIOps token " + ex.getMessage());
+		}
+		
+		//if we have empty token return
+		if(gs.nil(token)) {
+			gs.warn('AIOpsSimilarIncidents: could not retrieve auth token for search');
+			return results;
+		}
+			
+		try {
+			// rest call to get the incidents
+			var req2 = new sn_ws.RESTMessageV2();
+			req2.setHttpTimeout(10000);
+			req2.setEndpoint(endPointURL + "/aiops/instances/"+instanceName+"/api/v1/incidents/search");
+			req2.setHttpMethod('POST');
+			req2.setRequestHeader("Accept","application/json");
+			req2.setRequestHeader('Content-Type','application/json');
+			req2.setRequestHeader("Authorization", "Bearer " + token);
+
+			var reqBody2 = { "story_id" : storyId, "app_group_id" : appGroupId, "app_id" : appId, "search_text" : this.search};
+			req2.setRequestBody(JSON.stringify(reqBody2));
+			var resp2 = req2.execute();
+			
+			status = resp2.getStatusCode();
+			
+			//Might throw exception if http connection timed out or some issue with sending request itself.
+			if(!resp2.haveError() && status == 200) {
+				// parse response
+				var similarIncidents = JSON.parse(resp2.getBody()).similar_incidents;
+
+				if(gs.nil(similarIncidents)) {
+					gs.warn('AIOpsSimilarIncidents: invalid similar incidents result');
+					return results;
+				}
+				var _this = this;
+				
+				similarIncidents.forEach(function(item){
+					// similar incident provides incident_number (not sys_id)
+					var incidentNumber = item.incident_number;
+					
+					// load the incident
+					var incGr = new GlideRecordSecure(_this.tableName);
+					// using the incident number to retrieve record
+					var recFound = incGr.get("number", incidentNumber);
+					
+					//if found the the result
+					if(recFound){
+						results.push({ 
+							"title" : incGr.getValue("short_description"), 
+							"text" : incGr.getValue("short_description"),
+							"snippet": item.resolution,
+							"link": incGr.getLink(),
+							"id" : incGr.getTableName() + ":" + incGr.getUniqueValue(),
+							"record": incGr
+						});
+					}
+				});
+			}
+			else
+				gs.error("Unable to get the AIOps similar incidents " + resp2.getErrorMessage());
+			
+		} catch(ex) {
+			gs.error("Unable to get the AIOps similar incidents " + ex.getMessage());
+		}
+		
+		return results;
+	},
+	
+
+    type: 'AIOpsSimilarIncidents'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-18 22:09:42</sys_created_on>
+        <sys_id>6381eef5db64a0102531487039961914</sys_id>
+        <sys_mod_count>59</sys_mod_count>
+        <sys_name>AIOpsSimilarIncidents</sys_name>
+        <sys_package display_value="IBM Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="IBM Watson AIOps">632a6d81db102010253148703996197e</sys_scope>
+        <sys_update_name>sys_script_include_6381eef5db64a0102531487039961914</sys_update_name>
+        <sys_updated_by>ibm.admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 00:26:21</sys_updated_on>
+    </sys_script_include>
+</record_update>

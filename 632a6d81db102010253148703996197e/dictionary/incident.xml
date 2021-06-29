@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="all_tables.query_hints=true,email_client=true,hasWorkflow=true,live_feed=true,query_hints=true" audit="true" extends="task" label="Incident" max_length="40" name="incident" sizeclass="64" text_index="true" type="collection">
+        <element label="Application" max_length="200" name="x_ibm_waiops_application" read_only="true" type="string"/>
+        <element label="Application group Id" max_length="50" name="x_ibm_waiops_application_group_id" read_only="true" type="string"/>
+        <element label="Application Id" max_length="50" name="x_ibm_waiops_application_id" read_only="true" type="string"/>
+        <element label="Blast radius" max_length="8000" name="x_ibm_waiops_blast_radius" read_only="true" type="html"/>
+        <element label="Blast radius URL" max_length="2048" name="x_ibm_waiops_blast_radius_url" read_only="true" type="string"/>
+        <element label="Localization" max_length="8000" name="x_ibm_waiops_localization" read_only="true" type="html"/>
+        <element label="Localization URL" max_length="2048" name="x_ibm_waiops_localization_url" read_only="true" type="string"/>
+        <element label="Story number" max_length="10" name="x_ibm_waiops_storynumber" read_only="true" type="string"/>
+        <element label="Watson AIOps" max_length="100" name="x_ibm_waiops_storyurl" read_only="true" type="string"/>
+        <element label="Story Id" max_length="50" name="x_ibm_waiops_story_id" read_only="true" type="string"/>
+        <element default="&lt;b&gt;Services&lt;/b&gt;&lt;br/&gt;" label="Topology" max_length="8000" name="x_ibm_waiops_topology" read_only="true" type="html"/>
+    </element>
+</database>

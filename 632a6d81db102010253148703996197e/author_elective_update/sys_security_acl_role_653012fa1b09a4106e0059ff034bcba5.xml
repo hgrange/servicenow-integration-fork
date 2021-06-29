@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="DELETE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>ibm.admin</sys_created_by>
+        <sys_created_on>2020-12-16 19:58:28</sys_created_on>
+        <sys_id>653012fa1b09a4106e0059ff034bcba5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>.itil</sys_name>
+        <sys_package display_value="IBM Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="IBM Watson AIOps">632a6d81db102010253148703996197e</sys_scope>
+        <sys_security_acl display_value="">08ef86ba1b09a4106e0059ff034bcbee</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_653012fa1b09a4106e0059ff034bcba5</sys_update_name>
+        <sys_updated_by>ibm.admin</sys_updated_by>
+        <sys_updated_on>2020-12-16 19:58:28</sys_updated_on>
+        <sys_user_role display_value="itil" name="itil">282bf1fac6112285017366cb5f867469</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="IBM Watson AIOps">632a6d81db102010253148703996197e</application>
+        <file_path/>
+        <instance_id>80fce2d9dba314d0406350b6f49619f1</instance_id>
+        <instance_name>ibmjointsolutiondemo</instance_name>
+        <name>sys_security_acl_role_653012fa1b09a4106e0059ff034bcba5</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role"><sys_security_acl_role action="INSERT_OR_UPDATE"><sys_class_name>sys_security_acl_role</sys_class_name><sys_created_by>ibm.admin</sys_created_by><sys_created_on>2020-12-16 19:58:28</sys_created_on><sys_id>653012fa1b09a4106e0059ff034bcba5</sys_id><sys_mod_count>0</sys_mod_count><sys_name>.itil</sys_name><sys_package display_value="IBM Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package><sys_policy/><sys_scope display_value="IBM Watson AIOps">632a6d81db102010253148703996197e</sys_scope><sys_security_acl display_value="">08ef86ba1b09a4106e0059ff034bcbee</sys_security_acl><sys_update_name>sys_security_acl_role_653012fa1b09a4106e0059ff034bcba5</sys_update_name><sys_updated_by>ibm.admin</sys_updated_by><sys_updated_on>2020-12-16 19:58:28</sys_updated_on><sys_user_role display_value="itil" name="itil">282bf1fac6112285017366cb5f867469</sys_user_role><transaction_id/></sys_security_acl_role></record_update>]]></payload>
+        <payload_hash>701042120</payload_hash>
+        <record_name>.itil</record_name>
+        <reverted_from/>
+        <source>a132ac271b6cec146e0059ff034bcb73</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>ibm.admin</sys_created_by>
+        <sys_created_on>2020-12-16 19:58:28</sys_created_on>
+        <sys_id>1490d6fa1b09a4106e0059ff034bcb73</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1766d21ee2b0000001</sys_recorded_at>
+        <sys_updated_by>ibm.admin</sys_updated_by>
+        <sys_updated_on>2020-12-16 19:58:28</sys_updated_on>
+        <type>Access Roles</type>
+        <update_guid>5c90d6fa2a09a410b22f85f35279af72</update_guid>
+        <update_guid_history>5c90d6fa2a09a410b22f85f35279af72:701042120</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">ff822efe1b49a4106e0059ff034bcb98</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>ibm.admin</sys_created_by>
+        <sys_created_on>2020-12-16 21:17:05</sys_created_on>
+        <sys_db_object display_value="" name="sys_security_acl_role">sys_security_acl_role</sys_db_object>
+        <sys_id>0067442d45fa4dc485cf62a733697810</sys_id>
+        <sys_metadata>653012fa1b09a4106e0059ff034bcba5</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>.itil</sys_name>
+        <sys_package display_value="IBM Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package>
+        <sys_parent display_value="Watson AIOps Rest ACL">08ef86ba1b09a4106e0059ff034bcbee</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="IBM Watson AIOps">632a6d81db102010253148703996197e</sys_scope>
+        <sys_scope_delete display_value="">7d77cd1e60c249fbbd013fd312bc1a89</sys_scope_delete>
+        <sys_update_name>sys_security_acl_role_653012fa1b09a4106e0059ff034bcba5</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_role_653012fa1b09a4106e0059ff034bcba5">1490d6fa1b09a4106e0059ff034bcb73</sys_update_version>
+        <sys_updated_by>ibm.admin</sys_updated_by>
+        <sys_updated_on>2020-12-16 21:17:05</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

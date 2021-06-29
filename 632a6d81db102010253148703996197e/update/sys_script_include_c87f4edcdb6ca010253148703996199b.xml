@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_ibm_waiops.InsertUpdateAIManagerEvents</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>InsertUpdateAIManagerEvents</name>
+        <script><![CDATA[var InsertUpdateAIManagerEvents = Class.create();
+InsertUpdateAIManagerEvents.prototype = {
+    initialize: function() {
+    },
+	
+	insertOrUpdateAIManagerEvent: function(storyEvents, sysidIncident) {
+		var existingEvents = [];
+		var result = true;
+
+		// first get all incidents that are associated with incident
+		var grEvent = new GlideRecord('x_ibm_waiops_ai_manager_events');
+		if (grEvent.get("incident", sysidIncident)) {
+			// first event found
+			existingEvents.push(grEvent.getValue("id"));
+			// update or delete event if needed
+			var processResult = this.processEventRecord(grEvent, storyEvents);
+			result = result && processResult;
+			// move to next record and process events
+			while (grEvent.next()) {
+				existingEvents.push(grEvent.getValue("id"));
+				processResult = this.processEventRecord(grEvent, storyEvents);
+				result = result && processResult;
+			}
+		}
+
+		// look for any new events that need to be added to incident
+		var eventsToInsert = storyEvents.filter(function(event) {
+			var foundInExisting = existingEvents.filter(function(ev) {
+				return ev.equals(event.id);
+			});
+			if (foundInExisting.length===0) {
+				return true;
+			} else {
+				return false;
+			}
+		});
+		// insert new events
+		var insertEventResult = this.insertAIManagerEvents(eventsToInsert, sysidIncident);
+		// result will be false if any event add/update/delete failed
+		return result && insertEventResult;
+	},
+	
+	processEventRecord: function(eventRecord, storyEvents) {
+		var result = true;
+		var eventId = eventRecord.getValue("id");
+		var eventFromStory = storyEvents.filter(function(event) {
+			return event.id == eventId;
+		});
+		if (eventFromStory.length>0) {
+			// event still exists, update it
+			this.setEventData(eventRecord, eventFromStory[0]);
+			var updateResult = eventRecord.update();
+			result = !gs.nil(updateResult);
+		} else {
+			// event is not part of story anymore, delete the record
+			result = eventRecord.deleteRecord();
+		}
+		return result;
+	},
+	
+	setEventData: function(eventRecord, eventData) {
+		eventRecord.setValue('related_entities', eventData.relations.map(function(relation) {
+			return relation.name;
+		}).join(', '));
+		eventRecord.setValue('severity', eventData.severity);
+		eventRecord.setValue('status', eventData.lifecycle_state.value);
+		eventRecord.setValue('status_timestamp', eventData.lifecycle_state.updated_at);
+		eventRecord.setValue('updated_at', eventData.detail.updated_at);
+		if (eventData.detail.duplications && Object.keys(eventData.detail.duplications).length>0) {
+			var key = Object.keys(eventData.detail.duplications)[0];
+			eventRecord.setValue('duplicates', parseInt(eventData.detail.duplications[key].length));
+		}
+
+		// add log-anomaly-specific event data
+		if (eventData.detail.type=="anomaly" && eventData.detail.template_list && eventData.detail.template_list.length>0) {
+			var result = "<div style=\"font-size:small\">";
+			for (var i=0; i<eventData.detail.template_list.length; i++) {
+				result += "<div style=\"padding-bottom: 10px;\">";
+				result += "<span style=\"font-weight: bold;\">Template: </span>";
+				result += "<span style=\"font-family: monospace;\">";
+				result += eventData.detail.template_list[i];
+				result += "</span><br>";
+				result += "<span style=\"font-weight: bold;\">";
+				result += "Log messages matching template";
+				result += "</span><br>";
+				result += "<span style=\"font-weight: bold;\">Actual: </span>";
+				result += eventData.detail.count_vector[i];
+				result += "<br>";
+				result += "<span style=\"font-weight: bold;\">Expected: </span>";
+				result += eventData.detail.expected_count_vector[i];
+				result += "</div>";
+			}
+			result += "</div>";
+			eventRecord.setValue('details', result);
+		}
+	},
+	
+	insertAIManagerEvents: function(events, sysidIncident) {
+		var result = true;
+		for (var i=0; i<events.length; i++) {
+			var event = events[i];
+            var grEvent = new GlideRecord('x_ibm_waiops_ai_manager_events');
+			grEvent.setValue('id', event.id);
+            grEvent.setValue('incident', sysidIncident);
+            grEvent.setValue('type', event.detail.type);
+            grEvent.setValue('name', event.short_summary);
+            grEvent.setValue('target_url', event.data_source.target_url);
+			grEvent.setValue('created_at', event.created_at);
+			this.setEventData(grEvent, event);
+            var insertResult = grEvent.insert();
+			result = result && insertResult;
+		}
+		return result; // will be false if any event insert failed
+	},
+
+    type: 'InsertUpdateAIManagerEvents'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-14 04:58:27</sys_created_on>
+        <sys_id>c87f4edcdb6ca010253148703996199b</sys_id>
+        <sys_mod_count>23</sys_mod_count>
+        <sys_name>InsertUpdateAIManagerEvents</sys_name>
+        <sys_package display_value="IBM Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="IBM Watson AIOps">632a6d81db102010253148703996197e</sys_scope>
+        <sys_update_name>sys_script_include_c87f4edcdb6ca010253148703996199b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-21 05:37:12</sys_updated_on>
+    </sys_script_include>
+</record_update>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_declarative_action_assignment">
+    <sys_declarative_action_assignment action="INSERT_OR_UPDATE">
+        <action/>
+        <action_attributes/>
+        <action_name>Open blast radius</action_name>
+        <action_payload/>
+        <action_type>field</action_type>
+        <active>true</active>
+        <button_type>primary</button_type>
+        <client_action display_value="Open URL">e477ea65532333003eddddeeff7b12eb</client_action>
+        <client_conditions/>
+        <client_conditions_on_fields/>
+        <confirmation_message/>
+        <confirmation_required>false</confirmation_required>
+        <create_access>false</create_access>
+        <declarative_action_type>dispatch_action</declarative_action_type>
+        <delete_access>false</delete_access>
+        <dependency/>
+        <description/>
+        <design_icon display_value="open-link-fill">open_link_fill</design_icon>
+        <enabled>true</enabled>
+        <field_name>x_ibm_waiops_blast_radius_url</field_name>
+        <field_type>glide_date</field_type>
+        <form_position/>
+        <group/>
+        <group_by>false</group_by>
+        <icon/>
+        <label>WAIOps Blast radius URL</label>
+        <model display_value="Field">15920e6d534723003eddddeeff7b1244</model>
+        <model_conditions/>
+        <model_field_required/>
+        <order>0</order>
+        <payload_map>url={{value}}^EQ</payload_map>
+        <read_access>false</read_access>
+        <record_conditions/>
+        <record_selection_required>false</record_selection_required>
+        <required_roles/>
+        <requires_value>false</requires_value>
+        <script_condition/>
+        <server_script/>
+        <specificity>23</specificity>
+        <sys_class_name>sys_declarative_action_assignment</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-13 02:49:24</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>e958e080dbec601025314870399619cb</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Open blast radius</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="IBM Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="IBM Watson AIOps">632a6d81db102010253148703996197e</sys_scope>
+        <sys_update_name>sys_declarative_action_assignment_e958e080dbec601025314870399619cb</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-13 06:39:38</sys_updated_on>
+        <table>incident</table>
+        <tooltip>Show blast radius in Watson AIOps</tooltip>
+        <ui_component/>
+        <view display_value="WAIOps_Incidents" name="waiops_incidents">e532f4b6db54201025314870399619b5</view>
+        <workspace display_value="Agent Workspace">7b24ceae5304130084acddeeff7b12a3</workspace>
+        <write_access>false</write_access>
+    </sys_declarative_action_assignment>
+    <sys_translated_text action="delete_multiple" query="documentkey=e958e080dbec601025314870399619cb"/>
+</record_update>

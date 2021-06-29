@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="cxs_res_context_config_prop">
+    <cxs_res_context_config_prop action="DELETE">
+        <active>true</active>
+        <choices/>
+        <cxs_res_context_config display_value="catalog">9f7acccadba8a0102531487039961986</cxs_res_context_config>
+        <default_value/>
+        <description>Restricts searches to the named catalog. The value set below must be the title of the catalog, example: Technical Catalog</description>
+        <id>catalog_sr.catalog_name</id>
+        <name>Catalog Name</name>
+        <sys_class_name>cxs_res_context_config_prop</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-19 05:45:50</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>577acccadba8a0102531487039961989</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Catalog Name</sys_name>
+        <sys_package display_value="Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Watson AIOps">632a6d81db102010253148703996197e</sys_scope>
+        <sys_update_name>cxs_res_context_config_prop_577acccadba8a0102531487039961989</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-19 05:45:50</sys_updated_on>
+        <type>string</type>
+        <value/>
+    </cxs_res_context_config_prop>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="IBM Watson AIOps">632a6d81db102010253148703996197e</application>
+        <file_path/>
+        <instance_id>0d80e2a5db579f403353f22ebf96196e</instance_id>
+        <instance_name>dev64815</instance_name>
+        <name>cxs_res_context_config_prop_577acccadba8a0102531487039961989</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="cxs_res_context_config_prop"><cxs_res_context_config_prop action="INSERT_OR_UPDATE"><active>true</active><choices/><cxs_res_context_config display_value="catalog">9f7acccadba8a0102531487039961986</cxs_res_context_config><default_value/><description>Restricts searches to the named catalog. The value set below must be the title of the catalog, example: Technical Catalog</description><id>catalog_sr.catalog_name</id><name>Catalog Name</name><sys_class_name>cxs_res_context_config_prop</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-11-19 05:45:50</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>577acccadba8a0102531487039961989</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Catalog Name</sys_name><sys_package display_value="Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package><sys_policy/><sys_scope display_value="Watson AIOps">632a6d81db102010253148703996197e</sys_scope><sys_update_name>cxs_res_context_config_prop_577acccadba8a0102531487039961989</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-11-19 05:45:50</sys_updated_on><type>string</type><value/></cxs_res_context_config_prop></record_update>]]></payload>
+        <payload_hash>-1596402634</payload_hash>
+        <record_name>Catalog Name</record_name>
+        <reverted_from/>
+        <source>4e3f9c0ddb6020102531487039961977</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-19 05:45:50</sys_created_on>
+        <sys_id>937acccadba8a010253148703996198b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>175df099b530000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-19 05:45:50</sys_updated_on>
+        <type>Search Resource Context Property</type>
+        <update_guid>db7acccaa6a8a0107c99906ef51b448a</update_guid>
+        <update_guid_history>db7acccaa6a8a0107c99906ef51b448a:-1596402634</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">22093b4edb24e0102531487039961907</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-19 23:08:04</sys_created_on>
+        <sys_db_object display_value="" name="cxs_res_context_config_prop">cxs_res_context_config_prop</sys_db_object>
+        <sys_id>36a0d4215c54471c8ec02106bff0c8e4</sys_id>
+        <sys_metadata>577acccadba8a0102531487039961989</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Catalog Name</sys_name>
+        <sys_package display_value="IBM Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="IBM Watson AIOps">632a6d81db102010253148703996197e</sys_scope>
+        <sys_scope_delete display_value="">7d77cd1e60c249fbbd013fd312bc1a89</sys_scope_delete>
+        <sys_update_name>cxs_res_context_config_prop_577acccadba8a0102531487039961989</sys_update_name>
+        <sys_update_version display_value="cxs_res_context_config_prop_577acccadba8a0102531487039961989">937acccadba8a010253148703996198b</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-19 23:08:04</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

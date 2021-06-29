@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_definition">
+    <sys_ws_definition action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <base_uri>/api/x_ibm_waiops/aimanagerstory</base_uri>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_version>No active default version</default_version>
+        <doc_link/>
+        <enforce_acl>08ef86ba1b09a4106e0059ff034bcbee</enforce_acl>
+        <is_versioned>false</is_versioned>
+        <name>AIManagerStory</name>
+        <namespace>x_ibm_waiops</namespace>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <service_id>aimanagerstory</service_id>
+        <short_description/>
+        <sys_class_name>sys_ws_definition</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-04 01:02:17</sys_created_on>
+        <sys_id>9389758ddb10201025314870399619f0</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>AIManagerStory</sys_name>
+        <sys_package display_value="IBM Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="IBM Watson AIOps">632a6d81db102010253148703996197e</sys_scope>
+        <sys_update_name>sys_ws_definition_9389758ddb10201025314870399619f0</sys_update_name>
+        <sys_updated_by>ibm.admin</sys_updated_by>
+        <sys_updated_on>2020-12-16 21:13:02</sys_updated_on>
+    </sys_ws_definition>
+</record_update>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="cxs_search_res_config">
+    <cxs_search_res_config action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition/>
+        <cxs_searcher_config/>
+        <description>Returns similar incidents from Watson AIOps</description>
+        <grsr_script><![CDATA[(function(current) {
+	/**
+	 * current is a GlideRecord to create the result from.
+	 *
+	 * The return value should be an object containing to elements, 'order' and result'
+	 * order: Determines the values to be used for ordering results for this table
+	 *        Default values:
+	 *          * created: current.sys_created_on
+	 *          * updated: current.sys_updated_on
+	 *          * alpha: current.short_description
+	 *
+	 *        Additional ordering values can be added e.g. published.  A relevance score
+	 *        is automatically added to results.
+	 *            
+	 * result: The format of the result.
+	 *         The standard fields are:
+	 *           * id: The unique id of the results, for example a doc_id
+	 *           * title: The value to appear as the title of the result
+	 *           * text: The text to use to create the search snippet
+	 *           * link: The url for the result
+	 *           * meta: An object containing any other information you want to add to the result
+	 *
+	 */
+	return {
+		order: {
+			created: current.sys_created_on,
+			updated: current.sys_updated_on,
+			published: current.sys_updated_on,
+			alpha: current.short_description
+		},
+		
+		result: {
+			id: current.getTableName() + ":" + current.getUniqueValue(),
+			title: current.short_description,
+			text: current.short_description,
+			link: current.getLink(),
+			meta: {
+				number: current.number
+			}
+		}
+	};
+})(current);]]></grsr_script>
+        <label>Watson AIOps Similar Incidents</label>
+        <name>AIOpsSimilarIncidents</name>
+        <order>100</order>
+        <recommendation>false</recommendation>
+        <resource_type>script</resource_type>
+        <search_resource_id display_value="">com.snc.contextual_search.search_resource.ScriptSearchResource</search_resource_id>
+        <sys_class_name>cxs_search_res_config</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-18 22:30:56</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>94a62af9db64a010253148703996191d</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Watson AIOps Similar Incidents</sys_name>
+        <sys_package display_value="IBM Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="IBM Watson AIOps">632a6d81db102010253148703996197e</sys_scope>
+        <sys_update_name>cxs_search_res_config_94a62af9db64a010253148703996191d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-21 00:55:29</sys_updated_on>
+        <table>incident</table>
+    </cxs_search_res_config>
+    <sys_translated_text action="delete_multiple" query="documentkey=94a62af9db64a010253148703996191d"/>
+</record_update>

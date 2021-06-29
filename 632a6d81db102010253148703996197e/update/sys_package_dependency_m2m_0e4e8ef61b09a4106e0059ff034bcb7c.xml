@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_package_dependency_m2m">
+    <sys_package_dependency_m2m action="INSERT_OR_UPDATE">
+        <dependency display_value="ITSM Workspace" source="com.snc.agent_workspace.itsm">b1aabe31db77001061fd273a1396191a</dependency>
+        <min_version/>
+        <sys_created_by>ibm.admin</sys_created_by>
+        <sys_created_on>2020-12-16 19:48:29</sys_created_on>
+        <sys_id>0e4e8ef61b09a4106e0059ff034bcb7c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_package display_value="IBM Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package>
+        <sys_updated_by>ibm.admin</sys_updated_by>
+        <sys_updated_on>2020-12-16 19:48:29</sys_updated_on>
+    </sys_package_dependency_m2m>
+</record_update>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="cxs_res_context_config_prop">
+    <cxs_res_context_config_prop action="DELETE">
+        <active>true</active>
+        <choices/>
+        <cxs_res_context_config display_value="catalog">9f7acccadba8a0102531487039961986</cxs_res_context_config>
+        <default_value>IR_AND_OR_QUERY</default_value>
+        <description>Instructs Zing how to interegate the search string. The value may only be one of the following: 'IR_AND_QUERY', 'IR_AND_OR_QUERY' or 'IR_OR_QUERY'</description>
+        <id>catalog_sr.search_operator</id>
+        <name>Search Operator</name>
+        <sys_class_name>cxs_res_context_config_prop</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-19 05:45:50</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>1b7acccadba8a010253148703996198b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Search Operator</sys_name>
+        <sys_package display_value="Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Watson AIOps">632a6d81db102010253148703996197e</sys_scope>
+        <sys_update_name>cxs_res_context_config_prop_1b7acccadba8a010253148703996198b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-19 05:45:50</sys_updated_on>
+        <type>choice</type>
+        <value>IR_AND_OR_QUERY</value>
+    </cxs_res_context_config_prop>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="IBM Watson AIOps">632a6d81db102010253148703996197e</application>
+        <file_path/>
+        <instance_id>0d80e2a5db579f403353f22ebf96196e</instance_id>
+        <instance_name>dev64815</instance_name>
+        <name>cxs_res_context_config_prop_1b7acccadba8a010253148703996198b</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="cxs_res_context_config_prop"><cxs_res_context_config_prop action="INSERT_OR_UPDATE"><active>true</active><choices/><cxs_res_context_config display_value="catalog">9f7acccadba8a0102531487039961986</cxs_res_context_config><default_value>IR_AND_OR_QUERY</default_value><description>Instructs Zing how to interegate the search string. The value may only be one of the following: 'IR_AND_QUERY', 'IR_AND_OR_QUERY' or 'IR_OR_QUERY'</description><id>catalog_sr.search_operator</id><name>Search Operator</name><sys_class_name>cxs_res_context_config_prop</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-11-19 05:45:50</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>1b7acccadba8a010253148703996198b</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Search Operator</sys_name><sys_package display_value="Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package><sys_policy/><sys_scope display_value="Watson AIOps">632a6d81db102010253148703996197e</sys_scope><sys_update_name>cxs_res_context_config_prop_1b7acccadba8a010253148703996198b</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-11-19 05:45:50</sys_updated_on><type>choice</type><value>IR_AND_OR_QUERY</value></cxs_res_context_config_prop></record_update>]]></payload>
+        <payload_hash>-931899940</payload_hash>
+        <record_name>Search Operator</record_name>
+        <reverted_from/>
+        <source>4e3f9c0ddb6020102531487039961977</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-19 05:45:50</sys_created_on>
+        <sys_id>177acccadba8a010253148703996198d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>175df099b6e0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-19 05:45:50</sys_updated_on>
+        <type>Search Resource Context Property</type>
+        <update_guid>5f7acccac7a8a0103d523d26540a618c</update_guid>
+        <update_guid_history>5f7acccac7a8a0103d523d26540a618c:-931899940</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">ea09f74edb24e01025314870399619f5</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-19 23:08:04</sys_created_on>
+        <sys_db_object display_value="" name="cxs_res_context_config_prop">cxs_res_context_config_prop</sys_db_object>
+        <sys_id>893f73409f6647318a4fa06f5e2cce09</sys_id>
+        <sys_metadata>1b7acccadba8a010253148703996198b</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Search Operator</sys_name>
+        <sys_package display_value="IBM Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="IBM Watson AIOps">632a6d81db102010253148703996197e</sys_scope>
+        <sys_scope_delete display_value="">7d77cd1e60c249fbbd013fd312bc1a89</sys_scope_delete>
+        <sys_update_name>cxs_res_context_config_prop_1b7acccadba8a010253148703996198b</sys_update_name>
+        <sys_update_version display_value="cxs_res_context_config_prop_1b7acccadba8a010253148703996198b">177acccadba8a010253148703996198d</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-19 23:08:04</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

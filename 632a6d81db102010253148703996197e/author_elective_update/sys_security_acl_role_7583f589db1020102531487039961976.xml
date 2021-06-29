@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="DELETE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-04 00:35:08</sys_created_on>
+        <sys_id>7583f589db1020102531487039961976</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_ibm_waiops_ai_manager_events.x_ibm_waiops.ai_manager_events_user</sys_name>
+        <sys_package display_value="Watson AIOps AI Manager" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Watson AIOps AI Manager">632a6d81db102010253148703996197e</sys_scope>
+        <sys_security_acl display_value="x_ibm_waiops_ai_manager_events">f583f589db1020102531487039961973</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_7583f589db1020102531487039961976</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-04 00:35:08</sys_updated_on>
+        <sys_user_role display_value="x_ibm_waiops.ai_manager_events_user" name="x_ibm_waiops.ai_manager_events_user">9d833109db102010253148703996197c</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="IBM Watson AIOps">632a6d81db102010253148703996197e</application>
+        <file_path/>
+        <instance_id>0d80e2a5db579f403353f22ebf96196e</instance_id>
+        <instance_name>dev64815</instance_name>
+        <name>sys_security_acl_role_7583f589db1020102531487039961976</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role"><sys_security_acl_role action="INSERT_OR_UPDATE"><sys_class_name>sys_security_acl_role</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-11-04 00:35:08</sys_created_on><sys_id>7583f589db1020102531487039961976</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_ibm_waiops_ai_manager_events.x_ibm_waiops.ai_manager_events_user</sys_name><sys_package display_value="Watson AIOps AI Manager" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package><sys_policy/><sys_scope display_value="Watson AIOps AI Manager">632a6d81db102010253148703996197e</sys_scope><sys_security_acl display_value="x_ibm_waiops_ai_manager_events">f583f589db1020102531487039961973</sys_security_acl><sys_update_name>sys_security_acl_role_7583f589db1020102531487039961976</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-11-04 00:35:08</sys_updated_on><sys_user_role display_value="x_ibm_waiops.ai_manager_events_user" name="x_ibm_waiops.ai_manager_events_user">9d833109db102010253148703996197c</sys_user_role><transaction_id/></sys_security_acl_role></record_update>]]></payload>
+        <payload_hash>-1173464176</payload_hash>
+        <record_name>x_ibm_waiops_ai_manager_events.x_ibm_waiops.ai_manager_events_user</record_name>
+        <reverted_from/>
+        <source>e32a6d81db1020102531487039961980</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-04 00:35:08</sys_created_on>
+        <sys_id>bd83f589db1020102531487039961978</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17590adc4880000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-04 00:35:08</sys_updated_on>
+        <type>Access Roles</type>
+        <update_guid>f583f5898b102010ed628b63c4217d78</update_guid>
+        <update_guid_history>f583f5898b102010ed628b63c4217d78:-1173464176</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">ffbf2f3fdb1c60102531487039961941</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-12 22:41:09</sys_created_on>
+        <sys_db_object display_value="" name="sys_security_acl_role">sys_security_acl_role</sys_db_object>
+        <sys_id>0dabe2759e424f609733f5763d6e7690</sys_id>
+        <sys_metadata>7583f589db1020102531487039961976</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_ibm_waiops_ai_manager_events.x_ibm_waiops.ai_manager_events_user</sys_name>
+        <sys_package display_value="IBM Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package>
+        <sys_parent display_value="x_ibm_waiops_ai_manager_events">f583f589db1020102531487039961973</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="IBM Watson AIOps">632a6d81db102010253148703996197e</sys_scope>
+        <sys_scope_delete display_value="">7d77cd1e60c249fbbd013fd312bc1a89</sys_scope_delete>
+        <sys_update_name>sys_security_acl_role_7583f589db1020102531487039961976</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_role_7583f589db1020102531487039961976">bd83f589db1020102531487039961978</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-12 22:41:09</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>08ef86ba1b09a4106e0059ff034bcbee</enforce_acl>
+        <http_method>PATCH</http_method>
+        <name>Update</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+    // update updates selected value of an existing incident
+	if(request.body.data && Object.keys(request.body.data).length > 0) {
+		var updateStory = new UpdateStory();
+		try {
+			var result = updateStory.updateStory(request.pathParams.id, request.body.data);
+			if (result && result.success) {
+				response.setStatus(200);
+				response.setBody({ status : "success", message: "Successfully updated incident with id " + request.pathParams.id });
+			} else {
+				response.setStatus(500);
+				response.setBody({ status : "failure", message: result.message });
+			}
+		} catch(exception) {
+			gs.error('REST: /api/x_ibm_waiops/aimanagerstory/{id}, Unable to update incident ' + exception);
+			var error = new sn_ws_err.ServiceError();
+			error.setStatus(500);
+			error.setMessage(gs.getMessage('Unable to update incident ' + request.pathParams.id));
+			error.setDetail(exception);
+			return error;
+		}
+		
+	} else {
+		response.setError(new sn_ws_err.BadRequestError('Invalid request'));
+	}
+
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_ibm_waiops/aimanagerstory/{id}</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/{id}</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-14 02:44:32</sys_created_on>
+        <sys_id>ff80311cdb2ca010253148703996191d</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Update</sys_name>
+        <sys_package display_value="IBM Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="IBM Watson AIOps">632a6d81db102010253148703996197e</sys_scope>
+        <sys_update_name>sys_ws_operation_ff80311cdb2ca010253148703996191d</sys_update_name>
+        <sys_updated_by>ibm.admin</sys_updated_by>
+        <sys_updated_on>2020-12-16 21:13:53</sys_updated_on>
+        <web_service_definition display_value="AIManagerStory">9389758ddb10201025314870399619f0</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>

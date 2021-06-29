@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="cxs_res_context_config">
+    <cxs_res_context_config action="DELETE">
+        <active>true</active>
+        <cxs_context_config display_value="AIOps Incident Deflection">613a48cadba8a01025314870399619bb</cxs_context_config>
+        <cxs_search_res_config display_value="Knowledge Articles">adba8d70c39102006f333b0ac3d3aefa</cxs_search_res_config>
+        <default_search>false</default_search>
+        <name>knowledge</name>
+        <order>100</order>
+        <search_operator>IR_AND_OR_QUERY</search_operator>
+        <sys_class_name>cxs_res_context_config</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-19 05:45:49</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>137ac8cadba8a01025314870399619fe</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>AIOps Incident Deflection.Knowledge Articles</sys_name>
+        <sys_package display_value="Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Watson AIOps">632a6d81db102010253148703996197e</sys_scope>
+        <sys_update_name>cxs_res_context_config_137ac8cadba8a01025314870399619fe</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-19 05:45:49</sys_updated_on>
+    </cxs_res_context_config>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="IBM Watson AIOps">632a6d81db102010253148703996197e</application>
+        <file_path/>
+        <instance_id>0d80e2a5db579f403353f22ebf96196e</instance_id>
+        <instance_name>dev64815</instance_name>
+        <name>cxs_res_context_config_137ac8cadba8a01025314870399619fe</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="cxs_res_context_config"><cxs_res_context_config action="INSERT_OR_UPDATE"><active>true</active><cxs_context_config display_value="AIOps Incident Deflection">613a48cadba8a01025314870399619bb</cxs_context_config><cxs_search_res_config display_value="Knowledge Articles">adba8d70c39102006f333b0ac3d3aefa</cxs_search_res_config><default_search>false</default_search><name>knowledge</name><order>100</order><search_operator>IR_AND_OR_QUERY</search_operator><sys_class_name>cxs_res_context_config</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-11-19 05:45:49</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>137ac8cadba8a01025314870399619fe</sys_id><sys_mod_count>0</sys_mod_count><sys_name>AIOps Incident Deflection.Knowledge Articles</sys_name><sys_package display_value="Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package><sys_policy/><sys_scope display_value="Watson AIOps">632a6d81db102010253148703996197e</sys_scope><sys_update_name>cxs_res_context_config_137ac8cadba8a01025314870399619fe</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-11-19 05:45:49</sys_updated_on></cxs_res_context_config></record_update>]]></payload>
+        <payload_hash>38208996</payload_hash>
+        <record_name>knowledge</record_name>
+        <reverted_from/>
+        <source>4e3f9c0ddb6020102531487039961977</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-19 05:45:49</sys_created_on>
+        <sys_id>9f7acccadba8a0102531487039961980</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>175df099a970000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-19 05:45:49</sys_updated_on>
+        <type>Resource Configuration</type>
+        <update_guid>d77accca72a8a01088931fd9d86fc680</update_guid>
+        <update_guid_history>d77accca72a8a01088931fd9d86fc680:38208996</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">2a09f74edb24e01025314870399619f0</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-19 23:08:04</sys_created_on>
+        <sys_db_object display_value="" name="cxs_res_context_config">cxs_res_context_config</sys_db_object>
+        <sys_id>130259c40c264db889819d8683b33e21</sys_id>
+        <sys_metadata>137ac8cadba8a01025314870399619fe</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>AIOps Incident Deflection.Knowledge Articles</sys_name>
+        <sys_package display_value="IBM Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="IBM Watson AIOps">632a6d81db102010253148703996197e</sys_scope>
+        <sys_scope_delete display_value="">7d77cd1e60c249fbbd013fd312bc1a89</sys_scope_delete>
+        <sys_update_name>cxs_res_context_config_137ac8cadba8a01025314870399619fe</sys_update_name>
+        <sys_update_version display_value="cxs_res_context_config_137ac8cadba8a01025314870399619fe">9f7acccadba8a0102531487039961980</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-19 23:08:04</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

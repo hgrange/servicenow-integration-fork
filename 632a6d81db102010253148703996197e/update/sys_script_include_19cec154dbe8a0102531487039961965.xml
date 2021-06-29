@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_ibm_waiops.UpdateStory</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>UpdateStory</name>
+        <script><![CDATA[var UpdateStory = Class.create();
+UpdateStory.prototype = {
+    initialize: function() {
+    },
+	
+	updateStory: function(sys_id, storyState) {
+		var result = {
+			success: true
+		};
+		var grIncident = new GlideRecord('incident');
+		var existingIncident = grIncident.get(sys_id);
+		if (existingIncident) {
+			// first update state of incident
+			var currentState = grIncident.state;
+			var newStateInt = this.translateStateToInt(storyState.story.status);
+			// Open = 1; In progress = 2; Closed = 7; Other: treat as "In progress"
+			if (!currentState.equals(newStateInt)) {
+				var oldState = grIncident.getDisplayValue("state");
+				grIncident.setValue("state", newStateInt);
+				if (storyState.story.status==='CLOSED') {
+					grIncident.setValue("close_notes", "Closed by Watson AIOps");
+					grIncident.setValue("close_code", "Closed/Resolved by Caller");
+				}
+				var updateResult = grIncident.update();
+				if (gs.nil(updateResult)) {
+					result = {
+						success: false,
+						message: "Failed to update incident with id " + sys_id
+					};
+				}
+			}
+			
+			// update data for events associated with story
+			var insertAIManagerEvents = new InsertUpdateAIManagerEvents();
+			var updateEventsResult = insertAIManagerEvents.insertOrUpdateAIManagerEvent(
+				storyState.story.event_group.alerts, sys_id
+			);
+			if (!updateEventsResult) {
+				result = {
+					success: false,
+					message: "Failed to update one or more event records for incident with id " + sys_id
+				};
+			}
+		} else {
+			result = {
+				success: false,
+				message: "Incident for id " + sys_id + " not found."
+			};
+		}
+		return result;
+	},
+	
+	translateStateToInt: function(state) {
+		switch(state) {
+			case "OPEN":
+				return 1;
+			case "IN_PROGRESS":
+				return 2;
+			case "CLOSED":
+				return 7;
+			default:
+				return 2; // we support custom state, treat it as in progress state
+		}
+	},
+	
+	updateTopologyAttachments: function(sys_id, topologyAttachments) {
+		var result = {
+			success: true
+		};
+        var grIncident = new GlideRecord('incident');
+		var existingIncident = grIncident.get(sys_id);
+		if (existingIncident) {
+			if (topologyAttachments.sys_id_localization) {
+				grIncident.setValue("x_ibm_waiops_localization",
+					this.generateTopologyImageHTML(topologyAttachments.sys_id_localization, "Localization", grIncident.getValue("x_ibm_waiops_localization_url")));
+			}
+			if (topologyAttachments.sys_id_blast_radius) {
+				grIncident.setValue("x_ibm_waiops_blast_radius",
+					this.generateTopologyImageHTML(topologyAttachments.sys_id_blast_radius, "Blast radius", grIncident.getValue("x_ibm_waiops_blast_radius_url")));
+			}
+			var updateResult = grIncident.update();
+			if (gs.nil(updateResult)) {
+				result = {
+					success: false,
+					message: "Failed to update topology attachments for incident with id " + sys_id
+				};
+			}
+		} else {
+			result = {
+				success: false,
+				message: "Incident for id " + sys_id + " not found."
+			};
+		}
+		return result;
+	},
+	
+	generateTopologyImageHTML: function(attachmentId, altText, link) {
+		var result = "<div>";
+		result += "<div>";
+		result += "<a href='"+link+"' target='_blank' rel='noopener noreferrer nofollow'>View details <img src='link_outside.svg' alt='outgoingLink' width='12px' height='12px' /></a>";
+		result += "</div>";
+		result += "<img src=\"sys_attachment.do?sys_id="+attachmentId+"\" width=\"75%\" alt=\""+altText+"\"/>";
+		result += "</div>";
+		
+		return result;
+	},
+
+    type: 'UpdateStory'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-14 00:23:53</sys_created_on>
+        <sys_id>19cec154dbe8a0102531487039961965</sys_id>
+        <sys_mod_count>32</sys_mod_count>
+        <sys_name>UpdateStory</sys_name>
+        <sys_package display_value="IBM Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="IBM Watson AIOps">632a6d81db102010253148703996197e</sys_scope>
+        <sys_update_name>sys_script_include_19cec154dbe8a0102531487039961965</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-21 03:15:42</sys_updated_on>
+    </sys_script_include>
+</record_update>

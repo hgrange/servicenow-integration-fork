@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="cxs_search_res_config_prop">
+    <cxs_search_res_config_prop action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <choices/>
+        <cxs_search_res_config display_value="Watson AIOps Similar Incidents">94a62af9db64a010253148703996191d</cxs_search_res_config>
+        <default_value/>
+        <description/>
+        <id/>
+        <name>script.script_name</name>
+        <sys_class_name>cxs_search_res_config_prop</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-18 22:33:44</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>7167ea3ddb64a0102531487039961936</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>script.script_name</sys_name>
+        <sys_package display_value="IBM Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="IBM Watson AIOps">632a6d81db102010253148703996197e</sys_scope>
+        <sys_update_name>cxs_search_res_config_prop_7167ea3ddb64a0102531487039961936</sys_update_name>
+        <sys_updated_by>ibm.admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 00:34:28</sys_updated_on>
+        <type>string</type>
+        <value>x_ibm_waiops.AIOpsSimilarIncidents</value>
+    </cxs_search_res_config_prop>
+</record_update>

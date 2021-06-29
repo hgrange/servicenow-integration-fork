@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties_category_m2m">
+    <sys_properties_category_m2m action="INSERT_OR_UPDATE">
+        <category display_value="Watson AIOps">674718d9dbe82010253148703996198f</category>
+        <order>400</order>
+        <property display_value="x_ibm_waiops.AIOPS_PASSWORD" name="x_ibm_waiops.AIOPS_PASSWORD">c93650d9dbe8201025314870399619b2</property>
+        <sys_class_name>sys_properties_category_m2m</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-16 22:46:51</sys_created_on>
+        <sys_id>2267dcd9dbe8201025314870399619da</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>x_ibm_waiops.AIOPS_PASSWORD.Watson AIOps</sys_name>
+        <sys_package display_value="IBM Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="IBM Watson AIOps">632a6d81db102010253148703996197e</sys_scope>
+        <sys_update_name>sys_properties_category_m2m_2267dcd9dbe8201025314870399619da</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-19 23:23:46</sys_updated_on>
+    </sys_properties_category_m2m>
+</record_update>

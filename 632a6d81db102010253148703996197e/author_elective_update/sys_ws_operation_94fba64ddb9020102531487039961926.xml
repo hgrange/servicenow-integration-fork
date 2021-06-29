@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="DELETE">
+        <active>true</active>
+        <consumes/>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>GET</http_method>
+        <name>Create</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+	var story = request.body.data;
+	console.log("story: " + story);
+    // implement resource here
+	var gr = new GlideRecord('incident');
+	gr.initialize();
+
+	gr.short_description = story.title;
+	gr.description = story.description;
+	gr.insert();
+
+})(request, response);]]></operation_script>
+        <operation_uri/>
+        <produces/>
+        <produces_customized>false</produces_customized>
+        <relative_path>/</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-04 04:42:03</sys_created_on>
+        <sys_id>94fba64ddb9020102531487039961926</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Create</sys_name>
+        <sys_package display_value="Watson AIOps AI Manager" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Watson AIOps AI Manager">632a6d81db102010253148703996197e</sys_scope>
+        <sys_update_name>sys_ws_operation_94fba64ddb9020102531487039961926</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-04 04:42:03</sys_updated_on>
+        <web_service_definition/>
+        <web_service_version/>
+    </sys_ws_operation>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="IBM Watson AIOps">632a6d81db102010253148703996197e</application>
+        <file_path/>
+        <instance_id>0d80e2a5db579f403353f22ebf96196e</instance_id>
+        <instance_name>dev64815</instance_name>
+        <name>sys_ws_operation_94fba64ddb9020102531487039961926</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_ws_operation"&gt;&lt;sys_ws_operation action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;consumes/&gt;&lt;consumes_customized&gt;false&lt;/consumes_customized&gt;&lt;default_operation_uri/&gt;&lt;enforce_acl&gt;cf9d01d3e73003009d6247e603f6a990&lt;/enforce_acl&gt;&lt;http_method&gt;GET&lt;/http_method&gt;&lt;name&gt;Create&lt;/name&gt;&lt;operation_script&gt;&lt;![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+	var story = request.body.data;
+	console.log("story: " + story);
+    // implement resource here
+	var gr = new GlideRecord('incident');
+	gr.initialize();
+
+	gr.short_description = story.title;
+	gr.description = story.description;
+	gr.insert();
+
+})(request, response);]]&gt;&lt;/operation_script&gt;&lt;operation_uri/&gt;&lt;produces/&gt;&lt;produces_customized&gt;false&lt;/produces_customized&gt;&lt;relative_path&gt;/&lt;/relative_path&gt;&lt;request_example/&gt;&lt;requires_acl_authorization&gt;true&lt;/requires_acl_authorization&gt;&lt;requires_authentication&gt;true&lt;/requires_authentication&gt;&lt;requires_snc_internal_role&gt;true&lt;/requires_snc_internal_role&gt;&lt;short_description/&gt;&lt;sys_class_name&gt;sys_ws_operation&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-11-04 04:42:03&lt;/sys_created_on&gt;&lt;sys_id&gt;94fba64ddb9020102531487039961926&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Create&lt;/sys_name&gt;&lt;sys_package display_value="Watson AIOps AI Manager" source="x_ibm_waiops"&gt;632a6d81db102010253148703996197e&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Watson AIOps AI Manager"&gt;632a6d81db102010253148703996197e&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ws_operation_94fba64ddb9020102531487039961926&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-11-04 04:42:03&lt;/sys_updated_on&gt;&lt;web_service_definition/&gt;&lt;web_service_version/&gt;&lt;/sys_ws_operation&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-938792728</payload_hash>
+        <record_name>Create</record_name>
+        <reverted_from/>
+        <source>e32a6d81db1020102531487039961980</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-04 04:42:03</sys_created_on>
+        <sys_id>220cea89db90201025314870399619dc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>175918fd2e40000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-04 04:42:03</sys_updated_on>
+        <type>Scripted REST Resource</type>
+        <update_guid>6a0cea8935902010c7ba4c61a94a15db</update_guid>
+        <update_guid_history>6a0cea8935902010c7ba4c61a94a15db:-938792728</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-09 01:16:41</sys_created_on>
+        <sys_db_object display_value="" name="sys_ws_operation">sys_ws_operation</sys_db_object>
+        <sys_id>49749e513f294498885e50a6bb415a44</sys_id>
+        <sys_metadata>94fba64ddb9020102531487039961926</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Create</sys_name>
+        <sys_package display_value="IBM Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="IBM Watson AIOps">632a6d81db102010253148703996197e</sys_scope>
+        <sys_scope_delete display_value="">7d77cd1e60c249fbbd013fd312bc1a89</sys_scope_delete>
+        <sys_update_name>sys_ws_operation_94fba64ddb9020102531487039961926</sys_update_name>
+        <sys_update_version display_value="sys_ws_operation_94fba64ddb9020102531487039961926">220cea89db90201025314870399619dc</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-09 01:16:41</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

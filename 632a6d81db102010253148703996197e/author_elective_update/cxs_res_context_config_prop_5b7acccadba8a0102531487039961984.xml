@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="cxs_res_context_config_prop">
+    <cxs_res_context_config_prop action="DELETE">
+        <active>true</active>
+        <choices/>
+        <cxs_res_context_config display_value="knowledge">137ac8cadba8a01025314870399619fe</cxs_res_context_config>
+        <default_value>false</default_value>
+        <description>Excludes pinned articles from the result set. Should only be set to 'true' if pinned articles are included in this Searcher.</description>
+        <id>knowledge_sr.exclude_pinned</id>
+        <name>Exclude Pinned Articles</name>
+        <sys_class_name>cxs_res_context_config_prop</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-19 05:45:50</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>5b7acccadba8a0102531487039961984</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Exclude Pinned Articles</sys_name>
+        <sys_package display_value="Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Watson AIOps">632a6d81db102010253148703996197e</sys_scope>
+        <sys_update_name>cxs_res_context_config_prop_5b7acccadba8a0102531487039961984</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-19 05:45:50</sys_updated_on>
+        <type>boolean</type>
+        <value>false</value>
+    </cxs_res_context_config_prop>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="IBM Watson AIOps">632a6d81db102010253148703996197e</application>
+        <file_path/>
+        <instance_id>0d80e2a5db579f403353f22ebf96196e</instance_id>
+        <instance_name>dev64815</instance_name>
+        <name>cxs_res_context_config_prop_5b7acccadba8a0102531487039961984</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="cxs_res_context_config_prop"><cxs_res_context_config_prop action="INSERT_OR_UPDATE"><active>true</active><choices/><cxs_res_context_config display_value="knowledge">137ac8cadba8a01025314870399619fe</cxs_res_context_config><default_value>false</default_value><description>Excludes pinned articles from the result set. Should only be set to 'true' if pinned articles are included in this Searcher.</description><id>knowledge_sr.exclude_pinned</id><name>Exclude Pinned Articles</name><sys_class_name>cxs_res_context_config_prop</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-11-19 05:45:50</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>5b7acccadba8a0102531487039961984</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Exclude Pinned Articles</sys_name><sys_package display_value="Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package><sys_policy/><sys_scope display_value="Watson AIOps">632a6d81db102010253148703996197e</sys_scope><sys_update_name>cxs_res_context_config_prop_5b7acccadba8a0102531487039961984</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-11-19 05:45:50</sys_updated_on><type>boolean</type><value>false</value></cxs_res_context_config_prop></record_update>]]></payload>
+        <payload_hash>921858123</payload_hash>
+        <record_name>Exclude Pinned Articles</record_name>
+        <reverted_from/>
+        <source>4e3f9c0ddb6020102531487039961977</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-19 05:45:50</sys_created_on>
+        <sys_id>d77acccadba8a0102531487039961986</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>175df099b0f0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-19 05:45:50</sys_updated_on>
+        <type>Search Resource Context Property</type>
+        <update_guid>137acccaf8a8a0109245cf4859aed186</update_guid>
+        <update_guid_history>137acccaf8a8a0109245cf4859aed186:921858123</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">da09f74edb24e01025314870399619e2</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-19 23:08:04</sys_created_on>
+        <sys_db_object display_value="" name="cxs_res_context_config_prop">cxs_res_context_config_prop</sys_db_object>
+        <sys_id>17d29dd8c1084de09b16d64db5dbeb24</sys_id>
+        <sys_metadata>5b7acccadba8a0102531487039961984</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Exclude Pinned Articles</sys_name>
+        <sys_package display_value="IBM Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="IBM Watson AIOps">632a6d81db102010253148703996197e</sys_scope>
+        <sys_scope_delete display_value="">7d77cd1e60c249fbbd013fd312bc1a89</sys_scope_delete>
+        <sys_update_name>cxs_res_context_config_prop_5b7acccadba8a0102531487039961984</sys_update_name>
+        <sys_update_version display_value="cxs_res_context_config_prop_5b7acccadba8a0102531487039961984">d77acccadba8a0102531487039961986</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-19 23:08:04</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

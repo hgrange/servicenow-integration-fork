@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_ibm_waiops.InsertStory</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>InsertStory</name>
+        <script><![CDATA[var InsertStory = Class.create();
+InsertStory.prototype = {
+    initialize: function() {},
+    process: function(request, storyState) {
+		var result = {
+			success: true
+		};
+
+		if (storyState && storyState.story && storyState.story.event_group) {
+			// first insert basic information into incident table
+			var gr = new GlideRecord('incident');
+			gr.setValue('caller_id', gs.getUserID());
+			gr.setValue('short_description', storyState.story.title + " - Story " + storyState.story.number);
+			gr.setValue('description', storyState.story.description);
+			gr.setValue('x_ibm_waiops_application', storyState.app_name);
+			gr.setValue('x_ibm_waiops_storynumber', storyState.story.number);
+			gr.setValue('x_ibm_waiops_story_id', storyState.story.id);
+			gr.setValue('x_ibm_waiops_application_group_id', storyState.story.application_group_id);
+			gr.setValue('x_ibm_waiops_application_id', storyState.story.application_id);
+			if (storyState.permaLink) {
+				gr.setValue('x_ibm_waiops_storyurl', storyState.permaLink);
+			}
+			if (storyState.story.event_group.explainability && storyState.story.event_group.explainability.insights) {
+				gr.setValue('x_ibm_waiops_blast_radius_url', 	this.getInsightsValue(storyState.story.event_group.explainability.insights, "blast_radius","launch_context_url"));
+				gr.setValue('x_ibm_waiops_localization_url', this.getInsightsValue(storyState.story.event_group.explainability.insights, "localization","launch_context_url"));
+				// compose HTML for localization and blast radius
+				gr.setValue('x_ibm_waiops_topology', this.getLocalizationAndBlastRadiusHTML(storyState.story.event_group.explainability.insights));
+			}
+
+			var impactUrgency = this.translateSeverityToImpactUrgency(storyState.story.severity);
+			gr.setValue('urgency', impactUrgency.urgency);
+			gr.setValue('impact', impactUrgency.impact);
+
+			var sysidIncident = gr.insert();
+			if (gs.nil(sysidIncident)) {
+				result = {
+					success: false,
+					message: "Failed to create incident for story " + storyState.story.number
+				};
+			} else {
+				result.sys_id = sysidIncident;
+				// then insert the event data
+				var insertAIManagerEvents = new InsertUpdateAIManagerEvents();
+				var insertEventResult = 
+				insertAIManagerEvents.insertAIManagerEvents(storyState.story.event_group.alerts, sysidIncident);
+				// if failed to add events, but added events, partial success, just add message
+				if (!insertEventResult) {
+					result.message = "Failed to add one or more event records for incident with id " + sysidIncident;
+				}
+			}
+		} else {
+			// invalid story data provided
+			result = {
+				success: false,
+				message: "Failed to create incident - invalid story data provided"
+			};
+		}
+		
+		return result;
+    },
+	
+	getLocalizationAndBlastRadiusHTML: function(insights) {
+		var localizationResources = this.getInsightsValue(insights, "localization", "resources");
+		var brResources = this.getInsightsValue(insights, "blast_radius", "resources");
+		
+		if (!gs.nil(localizationResources) && !gs.nil(brResources)) {
+			// add distance from blast radius to entities in localization
+			localizationResources.forEach(function(localizationResource) {
+				brResources.forEach(function(brResource) {
+					if (localizationResource.entity.id === brResource.entity.id) {
+						localizationResource.distance = brResource.distance; 
+					}
+				});
+			});
+			// move all entities from blast radius that are not in localization
+			brResources.forEach(function(brResource) {
+				// try to find brResource in localization (find doesn't exist) 
+				var filteredList = localizationResources.filter(function(localizationResource) { 
+					return localizationResource.entity.id === brResource.entity.id;
+				});
+				if (filteredList.length == 0) {
+					localizationResources.push(brResource);
+				}
+			});
+			// group entities by type for printing
+			var groupedEntities = {};
+			localizationResources.forEach(function(localizationResource) {
+				if (!groupedEntities[localizationResource.entity.type]) {
+					groupedEntities[localizationResource.entity.type] = [];
+				}
+				groupedEntities[localizationResource.entity.type].push({
+					name: localizationResource.entity.name,
+					distance: localizationResource.distance
+				});
+			});
+			
+			var result = "<div style=\"font-size:small\">";
+			result += "<span style=\"font-size:xx-small\">";
+			result += "(0), (1), (2), etc. represent distance between entity and the nearest entity with error signal";
+			result += "</span><p>";
+			
+			Object.keys(groupedEntities).forEach(function(key) {
+				var entitiesInGroup = groupedEntities[key];
+				// sort them by distance
+				entitiesInGroup.sort(function(entity1, entity2) {
+					return entity1.distance - entity2.distance;
+				});
+				// start new group
+				result += "<div style=\"padding-bottom: 10px;\">";
+				// header
+				result += "<span style=\"font-weight: bold;\">";
+				result += key + ":";
+				result += "</span><br>";
+				// print each element
+				entitiesInGroup.forEach(function(entity) {
+					result += "<span style=\"font-weight: normal;\">("+entity.distance+") </span>";
+					result += "<span style=\"font-family: monospace;\">";
+					result += entity.name;
+					result += "</span><br>";
+				});
+				
+				// close group
+				result += "</div>";
+			});
+			
+			result += "</div>";
+			return result;
+		}
+		return "";
+	},
+
+	getInsightsValue: function(insights, section, property) {
+		var insight = insights.filter(function(insight) {
+			return insight.type===section;
+		});
+		if (insight.length > 0) {
+			var data = JSON.parse(insight[0].value);
+			return data[property];
+		}
+		return '';
+	},
+	
+    translateSeverityToImpactUrgency: function(severity) {
+        var impact = 3;
+        var urgency = 3;
+
+        switch (severity) {
+            case 1:
+                impact = 1;
+                urgency = 1;
+                break;
+            case 2:
+                impact = 1;
+                urgency = 2;
+                break;
+            case 3:
+                impact = 2;
+                urgency = 2;
+                break;
+            case 4:
+                impact = 2;
+                urgency = 3;
+                break;
+            case 5:
+                impact = 3;
+                urgency = 3;
+                break;
+            default:
+                break;
+        }
+        return {
+            impact: impact,
+            urgency: urgency
+        };
+    },
+
+    type: 'InsertStory'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-09 00:30:06</sys_created_on>
+        <sys_id>a1d597eadb502010253148703996196e</sys_id>
+        <sys_mod_count>50</sys_mod_count>
+        <sys_name>InsertStory</sys_name>
+        <sys_package display_value="IBM Watson AIOps" source="x_ibm_waiops">632a6d81db102010253148703996197e</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="IBM Watson AIOps">632a6d81db102010253148703996197e</sys_scope>
+        <sys_update_name>sys_script_include_a1d597eadb502010253148703996196e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-21 05:56:45</sys_updated_on>
+    </sys_script_include>
+</record_update>
