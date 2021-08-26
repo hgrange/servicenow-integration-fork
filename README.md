@@ -1,5 +1,6 @@
 # ServiceNow integration
 
+
 ServiceNow code for integration app.
 ## 0. Resources
 - Documentation: https://www.ibm.com/support/knowledgecenter/en/SSQLRP_2.1/config/aiops-servicenow.html  
